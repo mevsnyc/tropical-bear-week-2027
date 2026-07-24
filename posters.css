@@ -1,0 +1,78 @@
+/* ============================================================
+   POSTER & SOCIAL AD styles — share tokens/fonts with site.css
+   ============================================================ */
+
+.pstr{
+  width:100%; height:100%; position:relative; overflow:hidden;
+  background:#f4edda; padding:14px; box-sizing:border-box;
+}
+.pstr .art{
+  position:relative; width:100%; height:100%; overflow:hidden;
+  display:flex; flex-direction:column;
+}
+/* grain on every poster */
+.pstr::after{
+  content:""; position:absolute; inset:0; pointer-events:none; z-index:6;
+  opacity:.07; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+/* halftone helper for posters */
+.dots{ background-image:radial-gradient(currentColor 1.4px, transparent 1.6px); background-size:12px 12px; }
+
+/* liquid blob field (gradient approximation of the brand pattern) */
+.blobs{
+  background-color:var(--teal);
+  background-image:
+    radial-gradient(38% 26% at 20% 22%, rgba(255,255,255,.22) 0 60%, transparent 62%),
+    radial-gradient(30% 22% at 78% 30%, rgba(255,255,255,.18) 0 60%, transparent 62%),
+    radial-gradient(34% 24% at 60% 64%, rgba(255,255,255,.20) 0 60%, transparent 62%),
+    radial-gradient(26% 20% at 28% 80%, rgba(255,255,255,.16) 0 60%, transparent 62%),
+    radial-gradient(30% 22% at 88% 82%, rgba(255,255,255,.15) 0 60%, transparent 62%),
+    radial-gradient(22% 16% at 46% 18%, rgba(0,0,0,.06) 0 60%, transparent 62%);
+}
+.blobs.gold{ background-color:var(--gold); }
+.blobs.pink{ background-color:#7fd3cc; }
+
+/* photo placeholder for posters */
+.p-photo{
+  position:relative; overflow:hidden; color:#fff; flex:none;
+  background:
+    repeating-linear-gradient(135deg, rgba(0,0,0,.12) 0 13px, rgba(0,0,0,0) 13px 26px),
+    linear-gradient(160deg, var(--teal-deep), var(--teal));
+}
+.p-photo.gold{ background:repeating-linear-gradient(135deg, rgba(0,0,0,.12) 0 13px, rgba(0,0,0,0) 13px 26px), linear-gradient(160deg,#c47e1f,var(--gold)); }
+.p-photo.coral{ background:repeating-linear-gradient(135deg, rgba(0,0,0,.12) 0 13px, rgba(0,0,0,0) 13px 26px), linear-gradient(160deg,#c95f50,var(--coral)); }
+.p-photo.green{ background:repeating-linear-gradient(135deg, rgba(255,255,255,.06) 0 13px, rgba(0,0,0,0) 13px 26px), linear-gradient(160deg,#0a241b,var(--green)); }
+.p-cap{
+  position:absolute; left:12px; bottom:12px; z-index:5;
+  font-family:ui-monospace,Menlo,monospace; font-size:10px; line-height:1.4;
+  letter-spacing:.06em; text-transform:uppercase;
+  background:rgba(0,0,0,.34); border:1px solid rgba(255,255,255,.35);
+  padding:6px 9px; backdrop-filter:blur(2px);
+}
+.p-cap b{ display:block; font-weight:400; opacity:.72; font-size:9px; }
+
+/* duotone tint over a photo */
+.duo{ position:absolute; inset:0; mix-blend-mode:multiply; }
+.duo.coral{ background:var(--coral); }
+.duo.teal{ background:var(--teal); }
+.duo.gold{ background:var(--gold); }
+
+/* deco double-line arch window */
+.arch-win{
+  position:relative; flex:1; margin:7%;
+  border:2px solid currentColor; border-radius:48% 48% 6% 6% / 30% 30% 6% 6%;
+  overflow:hidden;
+}
+.arch-win::before{
+  content:""; position:absolute; inset:9px; border:1.5px solid currentColor;
+  border-radius:inherit; z-index:5; pointer-events:none;
+}
+
+/* poster meta lines */
+.p-meta{ font-family:var(--sans); font-weight:600; text-transform:uppercase; letter-spacing:.2em; }
+.p-pad{ padding:7%; }
+
+/* rotated script overlay (duotone direction) */
+.p-overlay{ position:absolute; inset:0; z-index:5; display:flex; align-items:center; justify-content:center; }
+.p-overlay .lockup{ transform:rotate(-6deg); }
